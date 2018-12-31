@@ -19,7 +19,7 @@ var app = http.createServer(function(request, response) {
     var _url = request.url;
     var queryData = url.parse(_url, true).query;
     var pathname = url.parse(_url, true).pathname;
-
+    //기본페이지(home)
     if (pathname === '/') {
         if (queryData.id === undefined) {
             db.query(`select * from topic`, function(error, topics) {
@@ -33,7 +33,7 @@ var app = http.createServer(function(request, response) {
                 response.writeHead(200);
                 response.end(html);
             });
-
+            //게시글 선택
         } else {
             db.query(`select * from topic`, function(error, topics) {
                 if (error) {
@@ -64,6 +64,7 @@ var app = http.createServer(function(request, response) {
                 });
             });
         }
+        //게시글 생성
     } else if (pathname === '/create') {
         db.query(`select * from topic`, function(error, topics) {
             db.query('select * from author', function(error2, authors) {
@@ -90,6 +91,7 @@ var app = http.createServer(function(request, response) {
                 response.end(html);
             });
         });
+        //게시글 생성 처리
     } else if (pathname === '/create_process') {
         var body = '';
         request.on('data', function(data) {
@@ -109,7 +111,7 @@ var app = http.createServer(function(request, response) {
                 }
             )
         });
-
+        // 게시글 수정
     } else if (pathname === '/update') {
         db.query('select * from topic', function(error, topics) {
             if (error) {
@@ -144,6 +146,7 @@ var app = http.createServer(function(request, response) {
                 });
             });
         });
+        //게시글 수정 처리
     } else if (pathname === '/update_process') {
         var body = '';
         request.on('data', function(data) {
@@ -157,6 +160,7 @@ var app = http.createServer(function(request, response) {
                     response.end();
                 })
         });
+        //게시글 삭제 처리
     } else if (pathname === '/delete_process') {
         var body = '';
         request.on('data', function(data) {
