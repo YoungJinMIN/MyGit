@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\make_script\delete_line.cs">
+    <Files>
+      <File FileName="Assets\make_script\thumsgesture.cs" Line="34" Column="34" />
+      <File FileName="Assets\make_script\makecube.cs" Line="1" Column="1" />
+      <File FileName="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" Line="1" Column="1" />
+      <File FileName="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" Line="127" Column="31" />
+      <File FileName="Assets\make_script\delete_line.cs" Line="23" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
