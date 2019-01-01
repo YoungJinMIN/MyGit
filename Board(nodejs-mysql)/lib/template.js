@@ -4,11 +4,11 @@ module.exports = {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Web - ${title}</title>
+            <title>${title}</title>
             <meta charset="utf-8">
         </head>
         <body>
-            <h1><a href="/"> WEB </h1></a>
+            <h1><a href="/"> Web - Board </h1></a>
             ${list}
             ${control}
             ${body}
@@ -35,6 +35,7 @@ module.exports = {
                 selected = 'selected';
             }
             tag = tag + `<option value="${authors[i].id}"${selected}>${authors[i].name}</option>`;
+            console.log(authors[i].name);
             i++;
         }
         return `
