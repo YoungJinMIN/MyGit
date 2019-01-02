@@ -35,7 +35,7 @@ module.exports = {
                 selected = 'selected';
             }
             tag = tag + `<option value="${authors[i].id}"${selected}>${authors[i].name}</option>`;
-            console.log(authors[i].name);
+            //console.log(authors[i].name);
             i++;
         }
         return `
