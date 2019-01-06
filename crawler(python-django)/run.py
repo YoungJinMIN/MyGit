@@ -98,7 +98,7 @@ for page in range(1,2): #7):
         print('오류', e1)
     
 print(tour_list, len(tour_list))
-
+'''
 # 수집한 정보 개수를 루프 => 페이지 방문 => 콘텐츠 획득(상품상세정보) => 디비
 for tour in tour_list:
     # tour => TourInfo
@@ -133,7 +133,7 @@ for tour in tour_list:
             tour.area,
             )
 
-
+'''
 # 종료
 driver.close()
 driver.quit()
