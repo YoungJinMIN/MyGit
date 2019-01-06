@@ -158,7 +158,7 @@ var app = http.createServer(function(request, response) {
                 function(error, result) {
                     response.writeHead(302, { Location: `/?id=${post.id}` });
                     response.end();
-                })
+                });
         });
         //게시글 삭제 처리
     } else if (pathname === '/delete_process') {
