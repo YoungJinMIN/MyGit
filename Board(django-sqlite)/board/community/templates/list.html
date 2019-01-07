@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>write</title>
+    <title>list</title>
 </head>
 <body>
+    <h2> 글목록 </h2>
     <ul>
-        <li>제목 | 저자 | 날짜</li>
+        <li>제목 | 글쓴이 | 날짜</li>
         {% for article in articleList %}
         <li><a href="/view/{{article.id}}">{{ article.title }}</a> | {{ article.name }} | {{ article.cdate|date:"D d M Y"}}</li>
         {% endfor %}
