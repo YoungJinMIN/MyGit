@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<body>
+    <form action="" method="post">
+    <h1>11번가(django)</h1>
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">검색</button>
+    </form>
+
+</body>
+</html>

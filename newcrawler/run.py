@@ -47,6 +47,12 @@ for page in range(1,2): #7):
         # 여러 사이트에서 정보를 수집할 경우 공통 정보 정의 단계 필요
         # 상품명, 코멘트, 기간1, 기간2, 가격, 평점, 썸네일, 링크(상품상세정보)
         boxItems = driver.find_elements_by_css_selector('.oTravelBox>.boxList>li')
+
+        print('-----------------------------------------------')
+        print(boxItems)
+        print('-----------------------------------------------')
+
+        
         # 상품 하나 하나 접근
         for li in boxItems:
             # 이미지를 링크값을 사용할 것인가? 직접다운로드 해서 우리 서버에 업로드(ftp) 할 것인가?
