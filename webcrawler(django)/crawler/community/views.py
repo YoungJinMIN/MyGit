@@ -15,9 +15,7 @@ def search(request):
     if request.method == 'POST':
         form = Form(request.POST)
         if form.is_valid():
-            #main_url = 'http://www.11st.co.kr/'
-            #db = Db()
-            #product = []
+            
             keyword = request.POST['name'];
             
             product = crawling(keyword)
@@ -25,66 +23,16 @@ def search(request):
             args={'product':product}    
 
             return render(request, 'list.html',args)
-            '''
-            driver = wd.Chrome('chromedriver')
-            driver.get(main_url) # 브라우저 실행
-            time.sleep(2) 
-            driver.find_element_by_id('AKCKwd').send_keys(keyword) # 검색창 찾아서 키워드 입력
-            driver.find_element_by_css_selector('button.btn_search').click() # 검색버튼 클릭 
 
-            try:
-                element = WebDriverWait(driver, 10).until(
-                # 지정한 한개 요소가 올라오면 웨이트 종료
-                EC.presence_of_element_located( (By.CLASS_NAME, 'total_listing_wrap') )
-                )
-            except Exception as e:
-                print(' 오류 발생 ', e)
-
-            driver.implicitly_wait(10)    
-
-
-            # total_listing_wrap
-            items = driver.find_elements_by_css_selector('.total_listing_wrap>.tt_listbox>li')
-            # boxItems = driver.find_elements_by_css_selector('.oTravelBox>.boxList>li')
-            # items = driver.find_elements_by_id('.focusClickPrdArea>.total_listing_wrap>.tt_listbox>li')
-            #product = Product()
-            #print('-----------------------------------------------')
-            #print(prodect)
-            #print('-----------------------------------------------')
-
-        
-            for li in items:
-                print('제품명 : ', li.find_element_by_css_selector('p.info_tit').text)
-                #product.name = li.find_element_by_css_selector('p.info_tit').text
-                print('가격 : ', li.find_element_by_css_selector('.list_price').text)
-                #product.price = li.find_element_by_css_selector('.list_price').text
-                print('썸네일 : ', li.find_element_by_css_selector('img').get_attribute('data-original'))
-                #product.photo = li.find_element_by_css_selector('img').get_attribute('data-original')
-                #product.save()
-                
-                db.db_insertCrawlingData(
-                        li.find_element_by_css_selector('p.info_tit').text,
-                        li.find_element_by_css_selector('.list_price').text,
-                        li.find_element_by_css_selector('img').get_attribute('data-original')
-                )
-                
-                obj = Items(
-                        li.find_element_by_css_selector('p.info_tit').text,
-                        li.find_element_by_css_selector('.list_price').text,
-                        li.find_element_by_css_selector('img').get_attribute('data-original')
-                )
-                product.append(obj)
-'''
-            # driver.close()
-            # driver.quit()
-            # sys.exit()    
-            # print(request.POST['title']);
-            # form.save()
+           # driver.close()
+           # driver.quit()
+           # sys.exit()    
+            
     else:
             form = Form()
 
     return render(request, 'search.html', {'form':form})
-    #return render(request, 'list.html', {'product':product})
+    
 
 
 def list(request):
@@ -113,7 +61,7 @@ def crawling(keyword):
                 driver.implicitly_wait(10)    
 
 
-            # total_listing_wrap
+           
         items = driver.find_elements_by_css_selector('.total_listing_wrap>.tt_listbox>li')
             # boxItems = driver.find_elements_by_css_selector('.oTravelBox>.boxList>li')
             # items = driver.find_elements_by_id('.focusClickPrdArea>.total_listing_wrap>.tt_listbox>li')
@@ -125,19 +73,15 @@ def crawling(keyword):
         
         for li in items:
                 print('제품명 : ', li.find_element_by_css_selector('p.info_tit').text)
-                #product.name = li.find_element_by_css_selector('p.info_tit').text
                 print('가격 : ', li.find_element_by_css_selector('.list_price').text)
-                #product.price = li.find_element_by_css_selector('.list_price').text
                 print('썸네일 : ', li.find_element_by_css_selector('img').get_attribute('data-original'))
-                #product.photo = li.find_element_by_css_selector('img').get_attribute('data-original')
-                #product.save()
-                '''
+                
                 db.db_insertCrawlingData(
                         li.find_element_by_css_selector('p.info_tit').text,
                         li.find_element_by_css_selector('.list_price').text,
                         li.find_element_by_css_selector('img').get_attribute('data-original')
                 )
-                '''
+                
                 obj = Items(
                         li.find_element_by_css_selector('p.info_tit').text,
                         li.find_element_by_css_selector('.list_price').text,
