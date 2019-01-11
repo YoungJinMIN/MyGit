@@ -9,7 +9,7 @@ $query = "select * from coupon where coupon_code='$coupon_code'";
 $result = mysqli_query($con, $query); 
 $row = mysqli_fetch_array($result); // DB 테이블에서 레코드를 배열로 가져오기
 
-if($coupon_code==$row['coupon_code'] && $row['use_user'] ==''){ // 사용
+if($coupon_code==$row['coupon_code'] && $row['use_user'] ==''){ // 쿠폰 사용 확인
     echo "<script>window.alert('사용 가능한 쿠폰번호 입니다.');</script>";
     echo "<script>location.href='coupon_use.php';</script>";
 } else if($coupon_code!=$row['coupon_code']) {
