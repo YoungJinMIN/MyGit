@@ -9,13 +9,13 @@ create table coupon(
      primary key(no)
      );
 
-
 create table user(
      no int(11) unsigned not null auto_increment,
      id varchar(20) not null,
      pw varchar(20) not null,
      primary key(no)
      );
+     
      
      구현 못한 부분
    3. 쿠폰 코드 발행 페이지
