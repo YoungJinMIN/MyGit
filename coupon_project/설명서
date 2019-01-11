@@ -1,0 +1,29 @@
+DB 스키마
+
+create table coupon(
+     no int(11) unsigned not null auto_increment,
+     coupon_code varchar(20) not null,
+     use_date varchar(20),
+     use_user varchar(20),
+     group_num varchar(10) not null,
+     primary key(no)
+     );
+
+
+create table user(
+     no int(11) unsigned not null auto_increment,
+     id varchar(20) not null,
+     pw varchar(20) not null,
+     primary key(no)
+     );
+     
+     구현 못한 부분
+   3. 쿠폰 코드 발행 페이지
+     3. 쿠폰 생성 시 한번에 10만 건이 생성 되며 생성된 쿠폰은 같은 성격이 됩니다.
+        1. 예를 들어, 처음에 생성된 쿠폰은 A Group, 다음에 생성된 쿠폰은 B Group 입니다.
+     4. 쿠폰 생성 중 랜덤으로 임의의 쿠폰에는 랜덤 한 유저가 사용한 걸로 해주세요.
+   4. 쿠폰 코드 리스트 페이지  
+     2. 그룹별 검색 가능
+     3. 코드와 코드 사용일시, 코드 사용 유저 출력.
+   6. 쿠폰 코드 통계 페이지
+     1. 각 쿠폰 그룹별로 유저들이 각각 얼만큼 사용했는지 통계를 볼 수 있는 페이지를 만들어 주세요.
