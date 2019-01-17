@@ -4,4 +4,4 @@ from community.models import *
 class Form(ModelForm):
     class Meta:
         model = Product
-        fields=['name']#,'price']
+        fields=['name']

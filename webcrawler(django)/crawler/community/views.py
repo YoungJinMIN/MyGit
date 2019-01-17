@@ -63,14 +63,7 @@ def crawling(keyword):
 
            
         items = driver.find_elements_by_css_selector('.total_listing_wrap>.tt_listbox>li')
-            # boxItems = driver.find_elements_by_css_selector('.oTravelBox>.boxList>li')
-            # items = driver.find_elements_by_id('.focusClickPrdArea>.total_listing_wrap>.tt_listbox>li')
-            #product = Product()
-            #print('-----------------------------------------------')
-            #print(prodect)
-            #print('-----------------------------------------------')
 
-        
         for li in items:
                 print('제품명 : ', li.find_element_by_css_selector('p.info_tit').text)
                 print('가격 : ', li.find_element_by_css_selector('.list_price').text)
