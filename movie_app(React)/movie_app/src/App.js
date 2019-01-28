@@ -1,25 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Movie from './Movie';
 
 class App extends Component {
+
+  // Render : componentWillMount() -> render() -> componentDidMount()
+  // Update : componentWillReceiveProps() -> shouldComponentUpdate()
+  // -> componentWillUpdate() -> render() -> componentDidUpdate()
+
+  state = {}
+
+  componentDidMount() {
+    this._getMovies();
+  }
+
+  _renderMovies = () => {
+    const movies = this.state.movies.map(movie => {
+      //console.log(movie)
+      return <Movie 
+      title ={movie.title_english} 
+      poster={movie.medium_cover_image} 
+      key={movie.id} 
+      genres={movie.genres} 
+      synopsis={movie.synopsis} 
+
+      />
+    })
+    return movies
+  }
+// async가 있어야 await 작동함
+  _getMovies = async () => {
+    const movies = await this._callApi()
+    this.setState({
+      movies
+    })
+  }
+
+  _callApi = () => {
+    return fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
+    .then(potato => potato.json())
+    .then(json => json.data.movies)
+    .catch(err => console.log(err))
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {this.state.movies ? this._renderMovies() : 'Loading'}
       </div>
     );
   }
