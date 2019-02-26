@@ -38,7 +38,7 @@ driver.implicitly_wait(10)
 driver.find_element_by_css_selector('.oTravelBox>.boxList>.moreBtnWrap>.moreBtn').click()
 
 
-for page in range(1,2): #7):
+for page in range(1,10): #7):
     try:
         # 자바스크립트 구동하기
         driver.execute_script("searchModule.SetCategoryList(%s, '')" % page)
@@ -56,6 +56,7 @@ for page in range(1,2): #7):
         # 상품 하나 하나 접근
         for li in boxItems:
             # 이미지를 링크값을 사용할 것인가? 직접다운로드 해서 우리 서버에 업로드(ftp) 할 것인가?
+            
             print('썸네일', li.find_element_by_css_selector('img').get_attribute('src'))
             print('링크', li.find_element_by_css_selector('a').get_attribute('onclick'))
             print('상품명', li.find_element_by_css_selector('h5.proTit').text)
